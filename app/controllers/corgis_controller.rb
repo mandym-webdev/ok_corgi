@@ -37,9 +37,15 @@ class CorgisController < ApplicationController
   # PATCH/PUT /corgis/1.json
   def update
     if @corgi.update(corgi_params)
-      redirect_to @corgi, notice: 'Corgi was successfully updated.'
+      respond_to do |format|
+        format.html {redirect_to @corgi, notice:"Corgi was successfully updated"}
+      format.json {render json: @corgi}
+    end
     else
-      render :edit
+      respond_to do |format|
+        format.html render :edit
+        format.json {render json: @corgi}
+      end
     end
   end
 
@@ -59,6 +65,6 @@ class CorgisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def corgi_params
-      params.require(:corgi).permit(:name, :bio, :profile_img)
+      params.require(:corgi).permit(:name, :bio, :match, :profile_img)
     end
 end

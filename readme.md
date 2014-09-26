@@ -7,3 +7,7 @@
 __BONUS__: Add drag-and-drop functionality so that in addition to "pawing" with buttons, users can skip or match by dropping Corgis into the appropriate side of the screen (left for skip, right for match)
 
 __DOUBLE BONUS__: Create a form on the home page for users to add new Corgis to the mix without reloading the page!
+
+// on click
+  // update "match" column based on id value
+    

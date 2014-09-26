@@ -31,13 +31,28 @@ var OkCorgiApp = function() {
 
     var elId = $(this).attr("id");
     var containerSelector = "";
+    var match = "";
+    var corgiId = $("li.active").attr("data-id");
 
     if (elId === "paw-left") {
       containerSelector = "#misses";
+      match = "false"
     }
     else {
       containerSelector = "#matches";
+      match = "true"
     }
+
+    console.log(corgiId);
+    // console.log(match);
+
+    $.ajax({
+      type: "PUT",
+      url: "/corgis/" + corgiId,
+      data: { corgi : { match : match } },
+      dataType: "json"
+    }); 
+
 
     // Append thumbnail list item to the #matches list
     $(containerSelector + " ul").append(createCorgiThumbnail());
@@ -52,3 +67,7 @@ $(document).ready(function() {
   OkCorgiApp();
 
 });
+
+
+
+// - When a user goes to the home page, they should see their previous skips or matches already in the correct columns
