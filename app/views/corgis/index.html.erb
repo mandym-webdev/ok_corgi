@@ -2,7 +2,12 @@
   <div class="corgi-container" id="misses">
     <h2>Thanks, but No Thanks</h2>
     <ul>
-
+      <% @misses.each do |miss| %>
+        <li data-id="<%= miss.id %>" class="corgi" %>
+          <h4><%= miss.name %></h4>
+          <%= image_tag miss.profile_img, :class => "pic" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 
@@ -28,7 +33,12 @@
   <div class="corgi-container" id="matches">
     <h2>Matches!</h2>
     <ul>
-
+      <% @matches.each do |match| %>
+        <li data-id="<%= match.id %>" class="corgi" %>
+          <h4><%= match.name %></h4>
+          <%= image_tag match.profile_img, :class => "pic" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>

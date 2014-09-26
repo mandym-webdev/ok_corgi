@@ -5,6 +5,8 @@ class CorgisController < ApplicationController
   # GET /corgis.json
   def index
     @corgis = Corgi.all
+    @matches = @corgis.select { |corgi| corgi.match == true }
+    @misses = @corgis.select { |corgi| corgi.match == false }
   end
 
   # GET /corgis/1
